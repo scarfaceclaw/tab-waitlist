@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Unlimited quotes and invoices for UK sole traders, with CIS and VAT done right, for £14.99 a year. Built by a builder. Join the waitlist.">
+<meta property="og:title" content="Tab: unlimited invoices, CIS done right, £14.99 a year">
+<meta property="og:description" content="Quote on site, invoice from the van, works with no signal. Built by a builder with 30 years on site. Join the waitlist.">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>Tab Waitlist</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,400;100,600;112,800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  /* Layout: a single column like an A4 invoice sheet, 680px wide, on paper; the duplicate-book blue carbon ink is the accent. */
+  :root {
+    --paper: #f8f6f0;
+    --paper-2: #efece3;
+    --ink: #1c2130;
+    --ink-soft: #5a6070;
+    --rule: #cfc9b8;
+    --carbon: #1f3f99;
+    --carbon-soft: #dde4f7;
+    --copy-pink: #f3dadf;
+    --ok: #2a7d4f;
+    --bad: #b4232c;
+    --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    --body: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    --mono: "IBM Plex Mono", "SF Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #15181f; --paper-2: #1d212b; --ink: #ece9df; --ink-soft: #a7acb8; --rule: #363b48;
+      --carbon: #8fa6ea; --carbon-soft: #232c45; --copy-pink: #3a2a30; --ok: #6fc794; --bad: #e57079;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #15181f; --paper-2: #1d212b; --ink: #ece9df; --ink-soft: #a7acb8; --rule: #363b48;
+    --carbon: #8fa6ea; --carbon-soft: #232c45; --copy-pink: #3a2a30; --ok: #6fc794; --bad: #e57079;
+    color-scheme: dark;
+  }
+
+  body { background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.55; }
+  * { box-sizing: border-box; }
+  .wrap { max-width: 680px; margin: 0 auto; padding-block: 28px 64px; padding-inline: 20px; }
+  a { color: var(--carbon); }
+  h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; line-height: 1.08; }
+  h1 { font-size: clamp(34px, 7vw, 54px); font-weight: 800; font-stretch: 112%; letter-spacing: -0.015em; }
+  h2 { font-size: 26px; font-weight: 800; font-stretch: 112%; }
+  h3 { font-size: 18px; font-weight: 600; }
+  p { margin: 0; }
+  .eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); }
+  .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+
+  header { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .wordmark { font-family: var(--display); font-weight: 800; font-stretch: 112%; font-size: 28px; letter-spacing: -0.02em; }
+  .wordmark span { color: var(--carbon); }
+
+  section { display: grid; gap: 18px; padding-block: 40px; border-bottom: 1px solid var(--rule); }
+  section:last-of-type { border-bottom: 0; }
+  .lede { font-size: 20px; color: var(--ink-soft); max-width: 34em; }
+
+  /* Price stamp */
+  .stamp { display: inline-grid; gap: 2px; justify-items: start; padding: 10px 14px; border: 2px solid var(--carbon); color: var(--carbon); transform: rotate(-1.5deg); width: max-content; }
+  .stamp .big { font-family: var(--mono); font-size: 30px; font-weight: 500; line-height: 1; }
+  .stamp .small { font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; }
+
+  /* Form */
+  form { display: grid; gap: 14px; background: var(--paper-2); padding: 20px; border: 1px solid var(--rule); }
+  label { display: grid; gap: 6px; font-weight: 600; font-size: 15px; }
+  input[type="email"], textarea { font: inherit; font-size: 17px; padding: 12px 14px; border: 1px solid var(--rule); background: var(--paper); color: var(--ink); width: 100%; border-radius: 4px; }
+  textarea { min-height: 76px; resize: vertical; }
+  input:focus-visible, textarea:focus-visible, button:focus-visible, .choice:focus-within { outline: 3px solid var(--carbon); outline-offset: 2px; }
+  fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 8px; }
+  legend { font-weight: 600; font-size: 15px; padding: 0; margin-bottom: 6px; }
+  .choices { display: flex; flex-wrap: wrap; gap: 8px; }
+  .choice { display: inline-flex; align-items: center; gap: 8px; padding: 9px 12px; border: 1px solid var(--rule); background: var(--paper); border-radius: 999px; font-weight: 400; font-size: 15px; cursor: pointer; }
+  .choice:has(input:checked) { border-color: var(--carbon); background: var(--carbon-soft); }
+  .choice input { margin: 0; accent-color: var(--carbon); }
+  button { font: inherit; font-family: var(--display); font-weight: 800; font-stretch: 112%; font-size: 18px; padding: 14px 20px; background: var(--carbon); color: #fff; border: 0; border-radius: 4px; cursor: pointer; }
+  button:disabled { opacity: 0.6; cursor: default; }
+  .fine { font-size: 13px; color: var(--ink-soft); }
+  .msg { padding: 12px 14px; border-radius: 4px; font-weight: 600; }
+  .msg.ok { background: var(--carbon-soft); color: var(--ink); }
+  .msg.bad { background: var(--copy-pink); color: var(--ink); }
+
+  /* Mock invoice */
+  .invoice { background: var(--paper-2); border: 1px solid var(--rule); padding: 20px; display: grid; gap: 14px; font-family: var(--mono); font-size: 14px; position: relative; overflow: hidden; }
+  .invoice::after { content: "CUSTOMER COPY"; position: absolute; right: -34px; top: 18px; transform: rotate(35deg); background: var(--copy-pink); color: var(--ink); font-size: 11px; letter-spacing: 0.08em; padding: 4px 44px; }
+  .inv-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .inv-head div { display: grid; gap: 2px; }
+  .inv-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  .inv-table th, .inv-table td { text-align: left; padding: 7px 0; border-bottom: 1px dashed var(--rule); vertical-align: top; }
+  .inv-table th { font-weight: 500; color: var(--ink-soft); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; }
+  .inv-table td:last-child, .inv-table th:last-child { text-align: right; white-space: nowrap; }
+  .inv-table tr.total td { border-bottom: 0; border-top: 2px solid var(--ink); font-weight: 500; font-size: 16px; padding-top: 10px; }
+  .inv-table tr.cis td { color: var(--carbon); }
+  .inv-note { font-size: 12px; color: var(--ink-soft); line-height: 1.5; }
+
+  /* Feature list */
+  .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px 28px; list-style: none; padding: 0; margin: 0; }
+  .features li { display: grid; gap: 4px; padding-top: 12px; border-top: 1px solid var(--rule); }
+  .features li p { color: var(--ink-soft); font-size: 15px; }
+
+  /* Compare */
+  .compare { width: 100%; border-collapse: collapse; font-size: 15px; }
+  .compare th, .compare td { padding: 10px 8px; border-bottom: 1px solid var(--rule); text-align: left; vertical-align: top; }
+  .compare th { font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); font-weight: 500; }
+  .compare td:first-child { color: var(--ink-soft); }
+  .compare .tab { color: var(--carbon); font-weight: 600; }
+  .compare-wrap { overflow-x: auto; }
+
+  .about { display: grid; gap: 10px; color: var(--ink-soft); font-size: 15px; }
+  .about strong { color: var(--ink); }
+  footer { padding-top: 24px; border-top: 2px solid var(--ink); font-size: 13px; color: var(--ink-soft); display: grid; gap: 6px; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .stamp { transition: transform 200ms ease; }
+    .stamp:hover { transform: rotate(0deg); }
+  }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="wordmark">Tab<span>.</span></div>
+    <div class="eyebrow">Quotes &amp; invoices for UK sole traders</div>
+  </header>
+
+  <section>
+    <p class="eyebrow">Coming to iPhone · early 2027</p>
+    <h1>Unlimited invoices. CIS done right. £14.99 a year.</h1>
+    <p class="lede">Not £19.99 a month. No three-invoice cap. Quote on site, invoice from the van, and it works with no signal.</p>
+    <div class="stamp" aria-label="Price: £14.99 a year, or £39.99 once">
+      <span class="small">Price when it launches</span>
+      <span class="big">£14.99 / yr</span>
+      <span class="small">or £39.99 once, forever</span>
+    </div>
+
+    <form id="waitlist" novalidate>
+      <label for="email">Email for one launch message
+        <input type="email" id="email" name="email" inputmode="email" autocomplete="email" placeholder="you@example.co.uk" required>
+      </label>
+
+      <fieldset>
+        <legend>Do you pay for an invoice app today?</legend>
+        <div class="choices" id="paying">
+          <label class="choice"><input type="radio" name="paying" value="Yes, paying monthly or yearly" id="paying-yes"> Yes, paying</label>
+          <label class="choice"><input type="radio" name="paying" value="Free app or free tier" id="paying-free"> Free app or free tier</label>
+          <label class="choice"><input type="radio" name="paying" value="My bank's invoicing" id="paying-bank"> My bank's invoicing</label>
+          <label class="choice"><input type="radio" name="paying" value="Paper, Word or spreadsheet" id="paying-paper"> Paper, Word or spreadsheet</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Are you CIS registered?</legend>
+        <div class="choices" id="cis">
+          <label class="choice"><input type="radio" name="cis" value="Yes, subcontractor" id="cis-sub"> Yes, subcontractor</label>
+          <label class="choice"><input type="radio" name="cis" value="Yes, contractor" id="cis-con"> Yes, contractor</label>
+          <label class="choice"><input type="radio" name="cis" value="No" id="cis-no"> No</label>
+          <label class="choice"><input type="radio" name="cis" value="What is CIS?" id="cis-what"> What's CIS?</label>
+        </div>
+      </fieldset>
+
+      <label for="gripe">What annoys you most about how you invoice now? <span class="fine">(optional)</span>
+        <textarea id="gripe" name="gripe" placeholder="e.g. they capped me at 3 invoices then wanted £20 a month"></textarea>
+      </label>
+
+      <button type="submit" id="submit">Join the waitlist</button>
+      <p class="fine">One email when Tab launches, nothing else. Your answers decide what gets built first.</p>
+      <div id="msg" class="msg" hidden role="status"></div>
+    </form>
+  </section>
+
+  <section>
+    <p class="eyebrow">What a Tab invoice looks like</p>
+    <h2>CIS deduction on labour only, every time.</h2>
+    <p class="lede">The thing most apps get wrong or charge extra for. Tab splits labour from materials and prints the deduction statement the contractor needs.</p>
+    <div class="invoice" aria-label="Example invoice">
+      <div class="inv-head">
+        <div><strong>INVOICE 0147</strong><span>Date 06 Oct 2026 · Due 20 Oct 2026</span></div>
+        <div><span>D. Okafor Plumbing &amp; Heating</span><span>UTR 12345 67890 · Not VAT registered</span></div>
+      </div>
+      <table class="inv-table">
+        <thead><tr><th>Item</th><th>Type</th><th>Amount</th></tr></thead>
+        <tbody>
+          <tr><td>Boiler swap, 2 days inc. commissioning</td><td>Labour</td><td>£1,200.00</td></tr>
+          <tr><td>Worcester 4000 30kW combi, flue kit</td><td>Materials</td><td>£1,640.00</td></tr>
+          <tr><td>Magnetic filter, inhibitor, fittings</td><td>Materials</td><td>£184.50</td></tr>
+          <tr><td>Subtotal</td><td></td><td>£3,024.50</td></tr>
+          <tr class="cis"><td>CIS deduction, 20% of labour (£1,200.00)</td><td></td><td>−£240.00</td></tr>
+          <tr class="total"><td>Amount due</td><td></td><td>£2,784.50</td></tr>
+        </tbody>
+      </table>
+      <p class="inv-note">Contractor to pay £240.00 to HMRC under the Construction Industry Scheme and issue a payment and deduction statement. Materials are excluded from the deduction. Bank: D Okafor · 20-00-00 · 12345678.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">What you get</p>
+    <h2>The six things, done properly. Nothing you have to upgrade for.</h2>
+    <ul class="features">
+      <li><h3>Unlimited quotes and invoices</h3><p>No monthly document cap. Quote, then turn it into an invoice with one tap.</p></li>
+      <li><h3>CIS and VAT built in</h3><p>Labour and materials split, 20% or 30% deduction, VAT lines when you're registered, correct wording on every PDF.</p></li>
+      <li><h3>Works with no signal</h3><p>Everything lives on your phone and syncs through iCloud when you're back in range.</p></li>
+      <li><h3>Chase late payers in one tap</h3><p>Sent, overdue, paid, part-paid. A polite reminder message ready to send.</p></li>
+      <li><h3>Siri on site</h3><p>“Hey Siri, invoice Mrs Jones £120 for the boiler service.” Draft done before you're back in the van.</p></li>
+      <li><h3>Your accountant gets a clean file</h3><p>Monthly and quarterly totals, CSV and a PDF bundle. Nothing locked in.</p></li>
+    </ul>
+  </section>
+
+  <section>
+    <p class="eyebrow">Why it's cheap</p>
+    <h2>One developer, no investors, no sales team.</h2>
+    <div class="compare-wrap">
+      <table class="compare">
+        <thead><tr><th></th><th>Typical paid invoice apps</th><th>Tab</th></tr></thead>
+        <tbody>
+          <tr><td>Price</td><td>Up to £19.99 a month (about £240 a year)</td><td class="tab">£14.99 a year, or £39.99 once</td></tr>
+          <tr><td>Free tier</td><td>3 to 5 documents a month, then pay</td><td class="tab">3 documents a month, forever</td></tr>
+          <tr><td>CIS deductions</td><td>Often missing, or on the dear plan</td><td class="tab">Included</td></tr>
+          <tr><td>Offline</td><td>Usually needs a connection</td><td class="tab">Fully offline</td></tr>
+          <tr><td>Your data</td><td>On their servers</td><td class="tab">On your phone and your iCloud</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="fine">Tab doesn't take card payments or file your tax return. It makes the invoice, tracks the money, and hands your accountant a clean file.</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">Who's behind it</p>
+    <div class="about">
+      <p><strong>Tab is designed and built by a builder, not a software company.</strong> I've been in the building trade for over 30 years, and more than 90% of the trades on my sites are subcontractors. Getting invoicing sorted correctly and easily has always been a problem for them: CIS worked out by hand, apps that cap you then put the price up, paperwork left in the van until the end of the month.</p>
+      <p>Tab comes from years of hearing those complaints and watching good tradespeople go round in circles with the admin, or bury their heads in the sand. The point is to make it simple enough that you can get on with what you do best.</p>
+      <p>Join the list, tell me what your current setup gets wrong, and I'll build that first. If enough people want it, it ships early 2027.</p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Tab · a working name · built in the UK by a builder</span>
+    <span>We store your email and answers to contact you once about the launch. Reply to that email and they're deleted.</span>
+  </footer>
+</div>
+
+<script>
+  // Form backend: a Google Form. Fill FORM.action with the form's formResponse URL and FORM.fields with its entry IDs
+  // (from the form's "Get pre-filled link"). With FORM.action empty the page runs in preview mode and stores nothing.
+  const FORM = {
+    action: "",
+    fields: { email: "entry.0", paying: "entry.0", cis: "entry.0", gripe: "entry.0" }
+  };
+
+  const form = document.getElementById("waitlist");
+  const msg = document.getElementById("msg");
+  const btn = document.getElementById("submit");
+
+  function show(kind, text) { msg.className = "msg " + kind; msg.textContent = text; msg.hidden = false; }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const email = form.email.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { show("bad", "Enter an email address so I can tell you when it launches."); form.email.focus(); return; }
+    const data = {
+      email,
+      paying: (form.querySelector('input[name="paying"]:checked') || {}).value || "",
+      cis: (form.querySelector('input[name="cis"]:checked') || {}).value || "",
+      gripe: form.gripe.value.trim()
+    };
+    if (!FORM.action) { show("ok", "Preview mode: the form isn't connected yet, so nothing was sent."); return; }
+    btn.disabled = true; btn.textContent = "Adding you…";
+    const body = new URLSearchParams();
+    for (const k in FORM.fields) body.append(FORM.fields[k], data[k]);
+    try {
+      await fetch(FORM.action, { method: "POST", mode: "no-cors", body });
+      show("ok", "You're on the list. One email when Tab launches.");
+      form.reset();
+      try { localStorage.setItem("tab-joined", "1"); } catch (_) {}
+    } catch (err) {
+      show("bad", "That didn't go through. Check your connection and try again.");
+    } finally {
+      btn.disabled = false; btn.textContent = "Join the waitlist";
+    }
+  });
+
+  try { if (localStorage.getItem("tab-joined")) show("ok", "You're already on the list. Thanks."); } catch (_) {}
+</script>
+</body>
+</html>
