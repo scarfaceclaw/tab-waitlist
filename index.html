@@ -248,8 +248,20 @@
   // (from the form's "Get pre-filled link"). With FORM.action empty the page runs in preview mode and stores nothing.
   const FORM = {
     action: "https://docs.google.com/forms/d/e/1FAIpQLSe1PQzeeJF5cQU5S09dXxvBpFJ3q_0zkZqPw2TrEFXX1PYFGQ/formResponse",
-    fields: { email: "entry.593493028", paying: "entry.792550046", cis: "entry.1110965038", gripe: "entry.1196659174" }
+    fields: { email: "entry.593493028", paying: "entry.792550046", cis: "entry.1110965038", gripe: "entry.1196659174", source: "entry.1733843255" }
   };
+
+  // Where did this visitor come from? Ads carry ?src=<channel>; otherwise use utm_source, the referring site, or "direct".
+  const SOURCE = (() => {
+    try {
+      const q = new URLSearchParams(location.search);
+      const s = q.get("src") || q.get("utm_source");
+      if (s) { sessionStorage.setItem("tab-src", s); return s; }
+      const saved = sessionStorage.getItem("tab-src"); if (saved) return saved;
+      if (document.referrer) return "ref:" + new URL(document.referrer).hostname;
+    } catch (_) {}
+    return "direct";
+  })();
 
   const form = document.getElementById("waitlist");
   const msg = document.getElementById("msg");
@@ -265,7 +277,8 @@
       email,
       paying: (form.querySelector('input[name="paying"]:checked') || {}).value || "",
       cis: (form.querySelector('input[name="cis"]:checked') || {}).value || "",
-      gripe: form.gripe.value.trim()
+      gripe: form.gripe.value.trim(),
+      source: SOURCE
     };
     if (!FORM.action) { show("ok", "Preview mode: the form isn't connected yet, so nothing was sent."); return; }
     btn.disabled = true; btn.textContent = "Adding you…";
