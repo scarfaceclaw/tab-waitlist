@@ -6,6 +6,9 @@
 <meta name="description" content="Unlimited quotes and invoices for anyone self-employed in the UK, CIS and VAT done right, £14.99 a year. Built by a builder. Join the waitlist.">
 <meta property="og:title" content="Tab: unlimited invoices for anyone self-employed, £14.99 a year">
 <meta property="og:description" content="Quote on the job, invoice from the van or the kitchen table. Works with no signal, and CIS is fully catered for. Simple, quick and clear.">
+<!-- Google tag (gtag.js) for Google Ads conversion tracking -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18501437658"></script>
+<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag("js", new Date()); gtag("config", "AW-18501437658");</script>
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
@@ -289,6 +292,8 @@
       show("ok", "You're on the list. One email when Tab launches.");
       form.reset();
       try { localStorage.setItem("tab-joined", "1"); } catch (_) {}
+      // Google Ads conversion (only fires on the live site, where the Google tag is loaded in <head>).
+      try { if (typeof gtag === "function") gtag("event", "conversion", { send_to: "AW-18501437658/zb2jCLW7yJUdENqRlvZE", value: 1.0, currency: "GBP" }); } catch (_) {}
     } catch (err) {
       show("bad", "That didn't go through. Check your connection and try again.");
     } finally {
